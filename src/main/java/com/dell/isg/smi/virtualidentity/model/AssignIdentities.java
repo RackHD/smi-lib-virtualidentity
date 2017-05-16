@@ -15,6 +15,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * The Class AssignIdentities.
+ */
 @ApiModel(value = "AssignIdentities", description = "A data transfer object for containing the usageid and a list of virtual identities to be assigned")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "usageId", "virtualIdentities" })
@@ -31,6 +34,7 @@ public class AssignIdentities {
     /**
      * Gets the value of the usageId property.
      *
+     * @return the usage id
      */
     public String getUsageId() {
         return usageId;
@@ -40,6 +44,7 @@ public class AssignIdentities {
     /**
      * Sets the value of the usageId property.
      *
+     * @param value the new usage id
      */
     public void setUsageId(String value) {
         this.usageId = value;
@@ -48,27 +53,27 @@ public class AssignIdentities {
 
     /**
      * Gets the value of the virtualIdentities property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list, not a snapshot. Therefore any modification you make to the returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the virtualIdentities property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * 
      * <pre>
      * getVirtualIdentities().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list {@link String }
      *
-     *
+     * @return the virtual identities
      */
     public List<String> getVirtualIdentities() {
         if (virtualIdentities == null) {
-            virtualIdentities = new ArrayList<String>();
+            virtualIdentities = new ArrayList<>();
         }
         return this.virtualIdentities;
     }

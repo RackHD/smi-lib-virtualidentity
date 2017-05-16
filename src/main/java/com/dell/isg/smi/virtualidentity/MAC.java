@@ -16,7 +16,7 @@ public class MAC {
 
     /**
      * Constructs a MAC address given an array of bytes. If the array is less than 6 bytes, an exception will be thrown.
-     * <p/>
+     * 
      * NOTE! This does not copy the bytes in the array, it merely references it. Therefore you must make your own copy if you expect to modify this and want this object to work
      * correctly.
      *
@@ -50,6 +50,8 @@ public class MAC {
 
     /**
      * Constructs a MAC address given a long numeric address.
+     *
+     * @param addr the addr
      */
     public MAC(long addr) {
         MAC mac = MAC.toMac(addr);
@@ -59,10 +61,10 @@ public class MAC {
 
 
     /**
-     * Constructs a MAC address given a string OUI and a string prefix
-     * 
-     * @param oui
-     * @param prefix
+     * Constructs a MAC address given a string OUI and a string prefix.
+     *
+     * @param oui the oui
+     * @param prefix the prefix
      */
     public MAC(String oui, String prefix) {
         StringBuilder str = new StringBuilder(oui);
@@ -76,7 +78,7 @@ public class MAC {
 
     /**
      * Returns the MAC address as an array of bytes.
-     * <p/>
+     * 
      * NOTE! This is a reference to the internal array of bytes, so please don't modify it.
      *
      * @return array of bytes
@@ -88,7 +90,7 @@ public class MAC {
 
     /**
      * Returns the MAC address as a string. The MAC address will be groups of two hex digits (uppercase) separated by a dash.
-     * <p/>
+     * 
      * Example: 00-0A-0B-0C-0D-0F
      *
      * @return mac address string
@@ -132,7 +134,7 @@ public class MAC {
 
     /**
      * Takes an array of 6 bytes and converts it to a MAC address string. The MAC address will* be groups of two hex digits (uppercase) separated by a dash.
-     * <p/>
+     * 
      * Example: 00-0A-0B-0C-0D-0F
      *
      * @param addr MAC address as an array of bytes
@@ -200,7 +202,7 @@ public class MAC {
     /**
      * Determine if this MAC is the broadcast address.
      *
-     * @return true -> is broadcast.
+     * @return true is broadcast.
      */
     public boolean isBroadcast() {
         for (int i = 0; i < macBytes.length; i++) {
@@ -215,7 +217,7 @@ public class MAC {
     /**
      * Determine if this MAC is a multicast address.
      *
-     * @return true -> is multicast.
+     * @return true is multicast.
      */
     public boolean isMulticast() {
         return (macBytes[0] & 0x01) != 0;
@@ -225,7 +227,7 @@ public class MAC {
     /**
      * Compare two MAC address. This compares the actual bytes of the MAC address. For example, the following two MAC addresses are equal even though they are created used
      * different strings:
-     * <p/>
+     * 
      * MAC mac1 = new MAC("00-02-03-04-05-06"); MAC mac2 = new MAC("00:02:03:04:05:06");
      *
      * @param addr The MAC address to compare against.

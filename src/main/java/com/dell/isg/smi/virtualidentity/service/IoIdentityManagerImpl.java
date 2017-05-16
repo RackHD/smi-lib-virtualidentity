@@ -19,8 +19,8 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import com.dell.isg.smi.commons.elm.exception.RuntimeCoreException;
-import com.dell.isg.smi.commons.elm.model.PagedResult;
-import com.dell.isg.smi.commons.elm.utilities.PaginationUtils;
+import com.dell.isg.smi.commons.utilities.model.PagedResult;
+import com.dell.isg.smi.commons.utilities.PaginationUtils;
 import com.dell.isg.smi.virtualidentity.configuration.IdentityPoolMgrConstants;
 import com.dell.isg.smi.virtualidentity.entity.IoIdentity;
 import com.dell.isg.smi.virtualidentity.entity.IoPool;

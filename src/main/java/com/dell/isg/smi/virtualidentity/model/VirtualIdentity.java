@@ -12,6 +12,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * The Class VirtualIdentity.
+ */
 @ApiModel
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "id", "value", "state", "type", "pool", "link" })
@@ -44,6 +47,7 @@ public class VirtualIdentity {
     /**
      * Gets the value of the id property.
      *
+     * @return the id
      */
     public long getId() {
         return id;
@@ -53,6 +57,7 @@ public class VirtualIdentity {
     /**
      * Sets the value of the id property.
      *
+     * @param value the new id
      */
     public void setId(long value) {
         this.id = value;

@@ -30,8 +30,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
- * @author Lakshmi.Lakkireddy
- *
+ * The Class IoIdentity.
  */
 @Entity
 @Table(name = T_IO_IDENTITY)
@@ -75,6 +74,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the name.
+     *
      * @return the name
      */
     public String getName() {
@@ -83,6 +84,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the name.
+     *
      * @param name the name to set
      */
     public void setName(String name) {
@@ -91,6 +94,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the value.
+     *
      * @return the value
      */
     public String getValue() {
@@ -99,6 +104,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the value.
+     *
      * @param value the value to set
      */
     public void setValue(String value) {
@@ -107,6 +114,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Checks if is custom.
+     *
      * @return the isCustom
      */
     public boolean isCustom() {
@@ -115,6 +124,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the custom.
+     *
      * @param isCustom the isCustom to set
      */
     public void setCustom(boolean isCustom) {
@@ -123,6 +134,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the secondary value.
+     *
      * @return the secondaryValue
      */
     public String getSecondaryValue() {
@@ -131,6 +144,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the secondary value.
+     *
      * @param secondaryValue the secondaryValue to set
      */
     public void setSecondaryValue(String secondaryValue) {
@@ -139,6 +154,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the mac address.
+     *
      * @return the macAddress
      */
     public String getMacAddress() {
@@ -147,6 +164,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the mac address.
+     *
      * @param macAddress the macAddress to set
      */
     public void setMacAddress(String macAddress) {
@@ -155,6 +174,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the state.
+     *
      * @return the state
      */
     public String getState() {
@@ -163,6 +184,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the state.
+     *
      * @param state the state to set
      */
     public void setState(String state) {
@@ -171,6 +194,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the usage guid.
+     *
      * @return the usageGuid
      */
     public String getUsageGuid() {
@@ -179,7 +204,9 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
-     * @param usageId the usageGuid to set
+     * Sets the usage guid.
+     *
+     * @param usageGuid the new usage guid
      */
     public void setUsageGuid(String usageGuid) {
         this.usageGuid = usageGuid;
@@ -187,6 +214,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the expiry date.
+     *
      * @return the expiryDate
      */
     public Date getExpiryDate() {
@@ -195,6 +224,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the expiry date.
+     *
      * @param expiryDate the expiryDate to set
      */
     public void setExpiryDate(Date expiryDate) {
@@ -203,6 +234,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the io pool type.
+     *
      * @return the ioPoolType
      */
     public IoPoolType getIoPoolType() {
@@ -211,6 +244,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the io pool type.
+     *
      * @param ioPoolType the ioPoolType to set
      */
     public void setIoPoolType(IoPoolType ioPoolType) {
@@ -219,6 +254,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the io pool.
+     *
      * @return the ioPool
      */
     public IoPool getIoPool() {
@@ -227,6 +264,8 @@ public class IoIdentity extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the io pool.
+     *
      * @param ioPool the ioPool to set
      */
     public void setIoPool(IoPool ioPool) {

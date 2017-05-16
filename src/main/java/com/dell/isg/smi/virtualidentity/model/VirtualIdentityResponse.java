@@ -12,6 +12,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * The Class VirtualIdentityResponse.
+ */
 @ApiModel
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "id", "value", "state", "type", "usageId", "poolId" })
@@ -43,6 +46,7 @@ public class VirtualIdentityResponse {
     /**
      * Gets the value of the id property.
      *
+     * @return the id
      */
     public long getId() {
         return id;
@@ -52,6 +56,7 @@ public class VirtualIdentityResponse {
     /**
      * Sets the value of the id property.
      *
+     * @param value the new id
      */
     public void setId(long value) {
         this.id = value;
@@ -127,6 +132,7 @@ public class VirtualIdentityResponse {
     /**
      * Gets the value of the usageId property.
      *
+     * @return the usage id
      */
     public String getUsageId() {
         return usageId;
@@ -136,6 +142,7 @@ public class VirtualIdentityResponse {
     /**
      * Sets the value of the usageId property.
      *
+     * @param value the new usage id
      */
     public void setUsageId(String value) {
         this.usageId = value;
@@ -145,6 +152,7 @@ public class VirtualIdentityResponse {
     /**
      * Gets the value of the poolId property.
      *
+     * @return the pool id
      */
     public long getPoolId() {
         return poolId;
@@ -154,6 +162,7 @@ public class VirtualIdentityResponse {
     /**
      * Sets the value of the poolId property.
      *
+     * @param value the new pool id
      */
     public void setPoolId(long value) {
         this.poolId = value;

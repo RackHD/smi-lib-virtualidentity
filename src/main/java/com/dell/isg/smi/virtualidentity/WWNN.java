@@ -7,11 +7,52 @@ import java.util.Arrays;
 
 import org.springframework.util.StringUtils;
 
+/**
+ * The Class WWNN.
+ */
 public class WWNN {
     private byte[] wwnnBytes;
     private String wwnnString;
+    
+
+    /**
+     * Instantiates a new wwnn.
+     *
+     * @param addr the addr
+     */
+    public WWNN(long addr) {
+
+        WWNN wwnn = WWNN.toWwnn(addr);
+
+        wwnnBytes = wwnn.wwnnBytes;
+        wwnnString = wwnn.wwnnString;
+
+    }
 
 
+    /**
+     * Instantiates a new wwnn.
+     *
+     * @param addr the addr
+     */
+    public WWNN(byte[] addr) {
+        if (addr.length != 8) {
+            throw new IllegalArgumentException("The addr argument, which is a WWNN address, must be 8 bytes in length.");
+        }
+
+        wwnnBytes = addr.clone();
+        wwnnString = toString(addr);
+
+    }
+
+    
+    /**
+     * Instantiates a new wwnn.
+     *
+     * @param oui the oui
+     * @param prefix the prefix
+     * @param startNum the start num
+     */
     public WWNN(String oui, String prefix, String startNum) {
         byte[] wwnnByte = new byte[8];
         wwnnByte[0] = 0x20;
@@ -48,6 +89,12 @@ public class WWNN {
     }
 
 
+    /**
+     * To wwnn.
+     *
+     * @param wwnnLong the wwnn long
+     * @return the wwnn
+     */
     public static WWNN toWwnn(long wwnnLong) {
 
         byte[] wwnnBytes = new byte[8];
@@ -60,27 +107,12 @@ public class WWNN {
     }
 
 
-    public WWNN(long addr) {
-
-        WWNN wwnn = WWNN.toWwnn(addr);
-
-        wwnnBytes = wwnn.wwnnBytes;
-        wwnnString = wwnn.wwnnString;
-
-    }
-
-
-    public WWNN(byte[] addr) {
-        if (addr.length != 8) {
-            throw new IllegalArgumentException("The addr argument, which is a WWNN address, must be 8 bytes in length.");
-        }
-
-        wwnnBytes = addr.clone();
-        wwnnString = toString(addr);
-
-    }
-
-
+    /**
+     * To string.
+     *
+     * @param addr the addr
+     * @return the string
+     */
     public static String toString(byte[] addr) {
 
         if (addr.length != 8) {
@@ -162,7 +194,7 @@ public class WWNN {
 
     /**
      * Returns the WWN address as an array of bytes.
-     * <p/>
+     * 
      * NOTE! This is a reference to the internal array of bytes, so please don't modify it.
      *
      * @return array of bytes
@@ -175,7 +207,7 @@ public class WWNN {
     /**
      * Compare two WWNN address. This compares the actual bytes of the WWNN address. For example, the following two WWNN addresses are equal even though they are created used
      * different strings:
-     * <p/>
+     * 
      * WWNN wwnn1 = new WWNN("20-01-00-02-03-04-05-06"); WWNN wwnn2 = new WWNN("20:01:00:02:03:04:05:06");
      *
      * @param addr The WWNN address to compare against.

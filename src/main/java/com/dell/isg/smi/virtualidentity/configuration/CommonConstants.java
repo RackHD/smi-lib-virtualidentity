@@ -3,6 +3,9 @@
  */
 package com.dell.isg.smi.virtualidentity.configuration;
 
+/**
+ * The Class CommonConstants.
+ */
 public class CommonConstants {
 
     String DEFAULT_CLIENT_LOCALE = "en_US";
