@@ -28,8 +28,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
- * @author Lakshmi.Lakkireddy
- *
+ * The Class IoPoolType.
  */
 @Entity
 @Table(name = T_IO_POOL_TYPE)
@@ -69,6 +68,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the name.
+     *
      * @return the name
      */
     public String getName() {
@@ -77,6 +78,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the name.
+     *
      * @param name the name to set
      */
     public void setName(String name) {
@@ -85,6 +88,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the type.
+     *
      * @return the type
      */
     public String getType() {
@@ -93,6 +98,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the type.
+     *
      * @param type the type to set
      */
     public void setType(String type) {
@@ -101,6 +108,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the oui.
+     *
      * @return the oui
      */
     public String getOui() {
@@ -109,6 +118,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the oui.
+     *
      * @param oui the oui to set
      */
     public void setOui(String oui) {
@@ -117,6 +128,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the seed value.
+     *
      * @return the seedValue
      */
     public String getSeedValue() {
@@ -125,6 +138,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the seed value.
+     *
      * @param seedValue the seedValue to set
      */
     public void setSeedValue(String seedValue) {
@@ -133,6 +148,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Checks if is auto generate.
+     *
      * @return the autoGenerate
      */
     public boolean isAutoGenerate() {
@@ -141,6 +158,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the auto generate.
+     *
      * @param autoGenerate the autoGenerate to set
      */
     public void setAutoGenerate(boolean autoGenerate) {
@@ -149,6 +168,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the system id.
+     *
      * @return the systemId
      */
     public int getSystemId() {
@@ -157,6 +178,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the system id.
+     *
      * @param systemId the systemId to set
      */
     public void setSystemId(int systemId) {
@@ -165,6 +188,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the pool size.
+     *
      * @return the poolSize
      */
     public int getPoolSize() {
@@ -173,6 +198,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the pool size.
+     *
      * @param poolSize the poolSize to set
      */
     public void setPoolSize(int poolSize) {
@@ -181,6 +208,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the prefix.
+     *
      * @return the prefix
      */
     public String getPrefix() {
@@ -189,6 +218,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the prefix.
+     *
      * @param prefix the prefix to set
      */
     public void setPrefix(String prefix) {
@@ -197,6 +228,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the io pool.
+     *
      * @return the ioPool
      */
     public IoPool getIoPool() {
@@ -205,6 +238,8 @@ public class IoPoolType extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the io pool.
+     *
      * @param ioPool the ioPool to set
      */
     public void setIoPool(IoPool ioPool) {

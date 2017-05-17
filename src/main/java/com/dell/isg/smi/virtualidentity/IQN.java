@@ -29,10 +29,10 @@ public class IQN {
 
 
     /**
-     * Constructor of IQN with systemId and uniqueId
+     * Constructor of IQN with systemId and uniqueId.
      *
-     * @param systemId
-     * @param uniqueId
+     * @param systemId the system id
+     * @param uniqueId the unique id
      */
     public IQN(int systemId, long uniqueId) {
 
@@ -57,9 +57,9 @@ public class IQN {
 
 
     /**
-     * Constructor of IQN with IQN string
+     * Constructor of IQN with IQN string.
      *
-     * @param iqn
+     * @param iqn the iqn
      */
     public IQN(String iqn) {
 
@@ -85,11 +85,11 @@ public class IQN {
 
 
     /**
-     * Constructor of IQN with the user customized prefix and starting number
-     * 
-     * @param prefix
-     * @param startingNum
-     * @param isEui
+     * Constructor of IQN with the user customized prefix and starting number.
+     *
+     * @param prefix the prefix
+     * @param startingNum the starting num
+     * @param isEui the is eui
      */
     public IQN(String prefix, long startingNum, boolean isEui) {
 
@@ -159,7 +159,7 @@ public class IQN {
 
 
     /**
-     * getNext always returns the next available IQN string
+     * getNext always returns the next available IQN string.
      *
      * @return String
      */
@@ -192,7 +192,7 @@ public class IQN {
 
 
     /**
-     * getNextCustomizedIqn always returns the next available IQN string based on user customized input
+     * getNextCustomizedIqn always returns the next available IQN string based on user customized input.
      *
      * @return String
      */
@@ -230,7 +230,7 @@ public class IQN {
 
 
     /**
-     * getNextCustomizedEui always returns the next available EUI string based on user customized input
+     * getNextCustomizedEui always returns the next available EUI string based on user customized input.
      *
      * @return String
      */
@@ -262,7 +262,7 @@ public class IQN {
 
 
     /**
-     * get current date in "yyyy-MM" format
+     * get current date in "yyyy-MM" format.
      *
      * @return String
      */
@@ -278,10 +278,10 @@ public class IQN {
 
 
     /**
-     * Right padding of spaces for a string
+     * Right padding of spaces for a string.
      *
-     * @param s
-     * @param n
+     * @param s the s
+     * @param n the n
      * @return String
      */
     public String rightPad(String s, int n) {
@@ -290,6 +290,8 @@ public class IQN {
 
 
     /**
+     * Gets the iqn.
+     *
      * @return the iqn
      */
     public String getIqn() {
@@ -298,6 +300,8 @@ public class IQN {
 
 
     /**
+     * Sets the iqn.
+     *
      * @param iqn the iqn to set
      */
     public void setIqn(String iqn) {
@@ -306,6 +310,8 @@ public class IQN {
 
 
     /**
+     * Gets the iqn prefix.
+     *
      * @return the iqnPrefix
      */
     public String getIqnPrefix() {
@@ -314,6 +320,8 @@ public class IQN {
 
 
     /**
+     * Sets the iqn prefix.
+     *
      * @param iqnPrefix the iqnPrefix to set
      */
     public void setIqnPrefix(String iqnPrefix) {
@@ -322,6 +330,8 @@ public class IQN {
 
 
     /**
+     * Gets the iqn suffix.
+     *
      * @return the iqnSuffix
      */
     public String getIqnSuffix() {
@@ -330,6 +340,8 @@ public class IQN {
 
 
     /**
+     * Sets the iqn suffix.
+     *
      * @param iqnSuffix the iqnSuffix to set
      */
     public void setIqnSuffix(String iqnSuffix) {
@@ -338,6 +350,8 @@ public class IQN {
 
 
     /**
+     * Gets the unique id.
+     *
      * @return the uniqueId
      */
     public long getUniqueId() {
@@ -346,6 +360,8 @@ public class IQN {
 
 
     /**
+     * Sets the unique id.
+     *
      * @param uniqueId the uniqueId to set
      */
     public void setUniqueId(long uniqueId) {
@@ -354,6 +370,8 @@ public class IQN {
 
 
     /**
+     * Gets the system id.
+     *
      * @return the systemId
      */
     public int getSystemId() {
@@ -362,6 +380,8 @@ public class IQN {
 
 
     /**
+     * Sets the system id.
+     *
      * @param systemId the systemId to set
      */
     public void setSystemId(int systemId) {

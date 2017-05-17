@@ -25,8 +25,7 @@ import com.dell.isg.smi.virtualidentity.model.VirtualIdentityResponse;
 import com.dell.isg.smi.virtualidentity.model.VirtualIdentityType;
 
 /**
- * DTO Assembler for the IO Pool
- *
+ * DTO Assembler for the IO Pool.
  */
 @Component
 public class IoPoolDtoAssemblerImpl implements IoPoolDtoAssembler {
@@ -34,6 +33,9 @@ public class IoPoolDtoAssemblerImpl implements IoPoolDtoAssembler {
     private static final Logger logger = LoggerFactory.getLogger(IoPoolDtoAssemblerImpl.class);
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.service.IoPoolDtoAssembler#transform(com.dell.isg.smi.virtualidentity.model.Pool)
+     */
     @Override
     public IoPool transform(Pool pool) {
         if (pool == null) {
@@ -69,6 +71,9 @@ public class IoPoolDtoAssemblerImpl implements IoPoolDtoAssembler {
     }
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.service.IoPoolDtoAssembler#transform(com.dell.isg.smi.virtualidentity.entity.IoPool)
+     */
     @Override
     public Pool transform(IoPool ioPool) {
         if (ioPool == null) {
@@ -91,6 +96,9 @@ public class IoPoolDtoAssemblerImpl implements IoPoolDtoAssembler {
     }
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.service.IoPoolDtoAssembler#transform(com.dell.isg.smi.virtualidentity.entity.IoPoolType, java.util.List)
+     */
     @Override
     public VirtualIdentityPool transform(IoPoolType ioPoolType, List<IoIdentityBrief> ioIdentityBriefList) {
         if (ioPoolType == null) {
@@ -118,6 +126,9 @@ public class IoPoolDtoAssemblerImpl implements IoPoolDtoAssembler {
     }
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.service.IoPoolDtoAssembler#transform(long, com.dell.isg.smi.virtualidentity.model.VirtualIdentityPool)
+     */
     @Override
     public IoPoolType transform(long poolId, VirtualIdentityPool virtualIdentityPool) {
         if (virtualIdentityPool == null) {
@@ -139,6 +150,9 @@ public class IoPoolDtoAssemblerImpl implements IoPoolDtoAssembler {
     }
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.service.IoPoolDtoAssembler#transform(com.dell.isg.smi.virtualidentity.entity.IoIdentity)
+     */
     @Override
     public VirtualIdentityResponse transform(IoIdentity ioIdentity) {
         if (ioIdentity == null) {
@@ -161,9 +175,12 @@ public class IoPoolDtoAssemblerImpl implements IoPoolDtoAssembler {
     }
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.service.IoPoolDtoAssembler#transformToIoPoolTypeList(com.dell.isg.smi.virtualidentity.model.Pool)
+     */
     @Override
     public List<IoPoolType> transformToIoPoolTypeList(Pool pool) {
-        List<IoPoolType> ioPoolTypes = new ArrayList<IoPoolType>();
+        List<IoPoolType> ioPoolTypes = new ArrayList<>();
         if (pool == null) {
             return ioPoolTypes;
         }
@@ -187,13 +204,13 @@ public class IoPoolDtoAssemblerImpl implements IoPoolDtoAssembler {
     /**
      * Get the prefix("iqn.1988-11.com.dell" from "iqn.1988-11.com.dell:software-asm-01-0000000000") if the Pooltype is IQN else return original prefix
      *
-     * @param ioPoolType
+     * @param ioPoolType the io pool type
      * @return prefix
      */
     private static String getPrefix(IoPoolType ioPoolType) {
         String prefix = ioPoolType.getPrefix();
         if (ioPoolType.getType().equals(IoIdentityType.IQN.name())) {
-            String pfs[] = prefix.split(":");
+            String[] pfs = prefix.split(":");
             prefix = pfs[0];
         }
         return prefix;

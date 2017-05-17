@@ -4,8 +4,7 @@
 package com.dell.isg.smi.virtualidentity.configuration;
 
 /**
- * @author Lakshmi.Lakkireddy
- *
+ * The Class IdentityTableConstants.
  */
 public class IdentityTableConstants {
 

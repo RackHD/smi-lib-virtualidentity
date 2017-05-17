@@ -22,8 +22,7 @@ import com.dell.isg.smi.virtualidentity.configuration.TableConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * @author steve_heracleous - 2014
- *
+ * The Class BaseEntity.
  */
 @Entity
 @Table(name = "base_entity")
@@ -32,16 +31,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Inheritance(strategy = InheritanceType.JOINED)
 @PrimaryKeyJoinColumn(name = "id")
 public abstract class BaseEntity implements Serializable {
-    /**
-     *
-     */
+
     private static final long serialVersionUID = 251527491407883452L;
-
-
-    public BaseEntity() {
-        super();
-        objectType = this.getClass().getName();
-    }
 
     @Id
     @Column(name = "id")
@@ -64,34 +55,68 @@ public abstract class BaseEntity implements Serializable {
 
     @Column(name = "updated_time", insertable = false, updatable = false, columnDefinition = "timestamp default now()")
     private Date updatedTime;
+    
+    /**
+     * Instantiates a new base entity.
+     */
+    public BaseEntity() {
+        super();
+        objectType = this.getClass().getName();
+    }
 
-
+    /**
+     * Gets the created time.
+     *
+     * @return the created time
+     */
     public Date getCreatedTime() {
         return createdTime;
     }
 
 
+    /**
+     * Sets the created time.
+     *
+     * @param createdTime the new created time
+     */
     public void setCreatedTime(Date createdTime) {
         this.createdTime = createdTime;
     }
 
 
+    /**
+     * Gets the object type.
+     *
+     * @return the object type
+     */
     public String getObjectType() {
         return objectType;
     }
 
 
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
 
+    /**
+     * Sets the id.
+     *
+     * @param id the new id
+     */
     public void setId(final long id) {
         this.id = id;
     }
 
 
     /**
+     * Gets the created by.
+     *
      * @return the createdBy
      */
     public String getCreatedBy() {
@@ -100,6 +125,8 @@ public abstract class BaseEntity implements Serializable {
 
 
     /**
+     * Sets the created by.
+     *
      * @param createdBy the createdBy to set
      */
     public void setCreatedBy(final String createdBy) {
@@ -108,6 +135,8 @@ public abstract class BaseEntity implements Serializable {
 
 
     /**
+     * Gets the updated by.
+     *
      * @return the updatedBy
      */
     public String getUpdatedBy() {
@@ -116,6 +145,8 @@ public abstract class BaseEntity implements Serializable {
 
 
     /**
+     * Sets the updated by.
+     *
      * @param updatedBy the updatedBy to set
      */
     public void setUpdatedBy(final String updatedBy) {
@@ -124,6 +155,8 @@ public abstract class BaseEntity implements Serializable {
 
 
     /**
+     * Gets the updated time.
+     *
      * @return the updatedTime
      */
     public Date getUpdatedTime() {
@@ -132,13 +165,18 @@ public abstract class BaseEntity implements Serializable {
 
 
     /**
-     * @param updateTime the updatedTime to set
+     * Sets the updated time.
+     *
+     * @param updatedTime the new updated time
      */
     public void setUpdatedTime(final Date updatedTime) {
         this.updatedTime = updatedTime;
     }
 
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -153,6 +191,9 @@ public abstract class BaseEntity implements Serializable {
     }
 
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

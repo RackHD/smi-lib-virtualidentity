@@ -3,6 +3,9 @@
  */
 package com.dell.isg.smi.virtualidentity.configuration;
 
+/**
+ * The Interface TableConstants.
+ */
 public interface TableConstants {
 
     // LocalizedMessages table

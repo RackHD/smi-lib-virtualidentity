@@ -25,8 +25,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
- * @author Lakshmi.Lakkireddy
- *
+ * The Class IoPool.
  */
 @Entity
 @Table(name = T_IO_POOL)
@@ -65,6 +64,8 @@ public class IoPool extends BaseEntity implements Serializable {
     // private Set<IoPoolType> ioPoolTypes;
 
     /**
+     * Gets the name.
+     *
      * @return the name
      */
     public String getName() {
@@ -73,6 +74,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the name.
+     *
      * @param name the name to set
      */
     public void setName(String name) {
@@ -81,6 +84,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the description.
+     *
      * @return the description
      */
     public String getDescription() {
@@ -89,6 +94,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the description.
+     *
      * @param description the description to set
      */
     public void setDescription(String description) {
@@ -97,6 +104,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Checks if is expandable.
+     *
      * @return the isExpandable
      */
     public boolean isExpandable() {
@@ -105,6 +114,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the expandable.
+     *
      * @param isExpandable the isExpandable to set
      */
     public void setExpandable(boolean isExpandable) {
@@ -113,6 +124,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Checks if is deletable.
+     *
      * @return the isDeletable
      */
     public boolean isDeletable() {
@@ -121,6 +134,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the deletable.
+     *
      * @param isDeletable the isDeletable to set
      */
     public void setDeletable(boolean isDeletable) {
@@ -129,6 +144,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the available count.
+     *
      * @return the availableCount
      */
     public Long getAvailableCount() {
@@ -137,6 +154,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the available count.
+     *
      * @param availableCount the availableCount to set
      */
     public void setAvailableCount(Long availableCount) {
@@ -145,6 +164,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the reserved count.
+     *
      * @return the reservedCount
      */
     public Long getReservedCount() {
@@ -153,6 +174,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the reserved count.
+     *
      * @param reservedCount the reservedCount to set
      */
     public void setReservedCount(Long reservedCount) {
@@ -161,6 +184,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the assigned count.
+     *
      * @return the assignedCount
      */
     public Long getAssignedCount() {
@@ -169,6 +194,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the assigned count.
+     *
      * @param assignedCount the assignedCount to set
      */
     public void setAssignedCount(Long assignedCount) {
@@ -177,6 +204,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Gets the server template count.
+     *
      * @return the serverTemplateCount
      */
     public Long getServerTemplateCount() {
@@ -185,6 +214,8 @@ public class IoPool extends BaseEntity implements Serializable {
 
 
     /**
+     * Sets the server template count.
+     *
      * @param serverTemplateCount the serverTemplateCount to set
      */
     public void setServerTemplateCount(Long serverTemplateCount) {

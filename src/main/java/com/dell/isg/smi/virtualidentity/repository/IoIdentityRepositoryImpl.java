@@ -19,6 +19,9 @@ import org.springframework.util.CollectionUtils;
 import com.dell.isg.smi.virtualidentity.entity.IoIdentity;
 import com.dell.isg.smi.virtualidentity.model.IoIdentityStates;
 
+/**
+ * The Class IoIdentityRepositoryImpl.
+ */
 public class IoIdentityRepositoryImpl implements IoIdentityRepositoryCustom {
 
     @Autowired
@@ -27,6 +30,9 @@ public class IoIdentityRepositoryImpl implements IoIdentityRepositoryCustom {
     private static final Logger logger = LoggerFactory.getLogger(IoIdentityRepositoryImpl.class.getName());
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.repository.IoIdentityRepositoryCustom#assignIdentities(java.util.List, java.lang.String)
+     */
     @Override
     @Transactional
     public void assignIdentities(List<String> identities, String usageGuid) {
@@ -47,6 +53,9 @@ public class IoIdentityRepositoryImpl implements IoIdentityRepositoryCustom {
     }
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.repository.IoIdentityRepositoryCustom#reserveIdentities(java.lang.String, java.lang.String, int, java.util.Date, long)
+     */
     @Override
     @Transactional
     public List<IoIdentity> reserveIdentities(String type, String usageGuid, int numberOfReservations, Date expiryDate, long poolId) {
@@ -63,6 +72,9 @@ public class IoIdentityRepositoryImpl implements IoIdentityRepositoryCustom {
     }
 
 
+    /* (non-Javadoc)
+     * @see com.dell.isg.smi.virtualidentity.repository.IoIdentityRepositoryCustom#saveOrUpdateIoIdentities(java.util.List, java.util.List)
+     */
     @Override
     public List<IoIdentity> saveOrUpdateIoIdentities(List<IoIdentity> identityList, List<IoIdentity> updateIdentityList) {
 

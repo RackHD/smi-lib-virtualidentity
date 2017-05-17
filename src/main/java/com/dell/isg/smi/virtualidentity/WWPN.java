@@ -7,11 +7,52 @@ import java.util.Arrays;
 
 import org.springframework.util.StringUtils;
 
+/**
+ * The Class WWPN.
+ */
 public class WWPN {
     private byte[] wwpnBytes;
     private String wwpnString;
 
 
+    /**
+     * Instantiates a new wwpn.
+     *
+     * @param addr the addr
+     */
+    public WWPN(long addr) {
+
+        WWPN wwpn = WWPN.toWwnn(addr);
+
+        wwpnBytes = wwpn.wwpnBytes;
+        wwpnString = wwpn.wwpnString;
+
+    }
+
+
+    /**
+     * Instantiates a new wwpn.
+     *
+     * @param addr the addr
+     */
+    public WWPN(byte[] addr) {
+        if (addr == null || addr.length != 8) {
+            throw new IllegalArgumentException("The addr argument, which is a WWNN address, must be 8 bytes in length.");
+        }
+
+        wwpnBytes = addr.clone();
+        wwpnString = toString(addr);
+
+    }
+    
+    
+    /**
+     * Instantiates a new wwpn.
+     *
+     * @param oui the oui
+     * @param prefix the prefix
+     * @param startNum the start num
+     */
     public WWPN(String oui, String prefix, String startNum) {
         byte[] wwpnByte = new byte[8];
         wwpnByte[0] = 0x20;
@@ -48,6 +89,12 @@ public class WWPN {
     }
 
 
+    /**
+     * To wwnn.
+     *
+     * @param wwpnLong the wwpn long
+     * @return the wwpn
+     */
     public static WWPN toWwnn(long wwpnLong) {
 
         byte[] wwpnBytes = new byte[8];
@@ -60,27 +107,12 @@ public class WWPN {
     }
 
 
-    public WWPN(long addr) {
-
-        WWPN wwpn = WWPN.toWwnn(addr);
-
-        wwpnBytes = wwpn.wwpnBytes;
-        wwpnString = wwpn.wwpnString;
-
-    }
-
-
-    public WWPN(byte[] addr) {
-        if (addr == null || addr.length != 8) {
-            throw new IllegalArgumentException("The addr argument, which is a WWNN address, must be 8 bytes in length.");
-        }
-
-        wwpnBytes = addr.clone();
-        wwpnString = toString(addr);
-
-    }
-
-
+    /**
+     * To string.
+     *
+     * @param addr the addr
+     * @return the string
+     */
     public static String toString(byte[] addr) {
 
         if (addr.length != 8) {
@@ -162,7 +194,7 @@ public class WWPN {
 
     /**
      * Returns the WWN address as an array of bytes.
-     * <p/>
+     * 
      * NOTE! This is a reference to the internal array of bytes, so please don't modify it.
      *
      * @return array of bytes
@@ -175,7 +207,7 @@ public class WWPN {
     /**
      * Compare two WWPN address. This compares the actual bytes of the WWPN address. For example, the following two WWPN addresses are equal even though they are created used
      * different strings:
-     * <p/>
+     * 
      * WWPN wwpn1 = new WWPN("20-01-00-02-03-04-05-06"); WWPN wwpn2 = new WWPN("20:01:00:02:03:04:05:06");
      *
      * @param addr The WWPN address to compare against.

@@ -10,6 +10,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * The Class VirtualIdentityPool.
+ */
 @ApiModel
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "VirtualIdentityPool", propOrder = { "id", "type", "prefix", "autoGenerateIdentities", "available", "assigned", "reserved" })
@@ -30,6 +33,7 @@ public class VirtualIdentityPool {
     /**
      * Gets the value of the id property.
      *
+     * @return the id
      */
     public long getId() {
         return id;
@@ -39,6 +43,7 @@ public class VirtualIdentityPool {
     /**
      * Sets the value of the id property.
      *
+     * @param value the new id
      */
     public void setId(long value) {
         this.id = value;
@@ -92,6 +97,7 @@ public class VirtualIdentityPool {
     /**
      * Gets the value of the autoGenerateIdentities property.
      *
+     * @return true, if is auto generate identities
      */
     public boolean isAutoGenerateIdentities() {
         return autoGenerateIdentities;
@@ -101,6 +107,7 @@ public class VirtualIdentityPool {
     /**
      * Sets the value of the autoGenerateIdentities property.
      *
+     * @param value the new auto generate identities
      */
     public void setAutoGenerateIdentities(boolean value) {
         this.autoGenerateIdentities = value;
@@ -110,6 +117,7 @@ public class VirtualIdentityPool {
     /**
      * Gets the value of the available property.
      *
+     * @return the available
      */
     public long getAvailable() {
         return available;
@@ -119,6 +127,7 @@ public class VirtualIdentityPool {
     /**
      * Sets the value of the available property.
      *
+     * @param value the new available
      */
     public void setAvailable(long value) {
         this.available = value;
@@ -128,6 +137,7 @@ public class VirtualIdentityPool {
     /**
      * Gets the value of the assigned property.
      *
+     * @return the assigned
      */
     public long getAssigned() {
         return assigned;
@@ -137,6 +147,7 @@ public class VirtualIdentityPool {
     /**
      * Sets the value of the assigned property.
      *
+     * @param value the new assigned
      */
     public void setAssigned(long value) {
         this.assigned = value;
@@ -146,6 +157,7 @@ public class VirtualIdentityPool {
     /**
      * Gets the value of the reserved property.
      *
+     * @return the reserved
      */
     public long getReserved() {
         return reserved;
@@ -155,6 +167,7 @@ public class VirtualIdentityPool {
     /**
      * Sets the value of the reserved property.
      *
+     * @param value the new reserved
      */
     public void setReserved(long value) {
         this.reserved = value;

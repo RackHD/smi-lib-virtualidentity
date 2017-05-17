@@ -12,6 +12,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * The Class ReserveIdentities.
+ */
 @ApiModel
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "usageId", "identityType", "quantityRequested" })
@@ -32,6 +35,7 @@ public class ReserveIdentities {
     /**
      * Gets the value of the usageId property.
      *
+     * @return the usage id
      */
     public String getUsageId() {
         return usageId;
@@ -41,6 +45,7 @@ public class ReserveIdentities {
     /**
      * Sets the value of the usageId property.
      *
+     * @param value the new usage id
      */
     public void setUsageId(String value) {
         this.usageId = value;
@@ -72,6 +77,7 @@ public class ReserveIdentities {
     /**
      * Gets the value of the quantityRequested property.
      *
+     * @return the quantity requested
      */
     public int getQuantityRequested() {
         return quantityRequested;
@@ -81,6 +87,7 @@ public class ReserveIdentities {
     /**
      * Sets the value of the quantityRequested property.
      *
+     * @param value the new quantity requested
      */
     public void setQuantityRequested(int value) {
         this.quantityRequested = value;

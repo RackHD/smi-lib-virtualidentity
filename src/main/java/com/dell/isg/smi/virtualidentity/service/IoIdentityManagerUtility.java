@@ -23,8 +23,7 @@ import com.dell.isg.smi.virtualidentity.model.IoIdentityStates;
 import com.dell.isg.smi.virtualidentity.model.IoIdentityType;
 
 /**
- * IO Identity Manager Utility
- *
+ * IO Identity Manager Utility.
  */
 public class IoIdentityManagerUtility {
 
@@ -36,11 +35,13 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param ioIdentityType
-     * @param iCount
-     * @param latestIOIdentity
-     * @param ioIdentityOfLastMac
-     * @param ioPoolType
+     * Generate MAC identity.
+     *
+     * @param ioIdentityType the io identity type
+     * @param iCount the i count
+     * @param latestIOIdentity the latest IO identity
+     * @param ioIdentityOfLastMac the io identity of last mac
+     * @param ioPoolType the io pool type
      * @return ioIdentities
      */
     public static List<IoIdentity> generateMACIdentity(IoIdentityType ioIdentityType, int iCount, IoIdentity latestIOIdentity, IoIdentity ioIdentityOfLastMac, IoPoolType ioPoolType) {
@@ -86,9 +87,11 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param latestIOIdentity
-     * @param ioPoolType
-     * @param iSCSIIOIdentities
+     * Generate IQN identity for ISCSI.
+     *
+     * @param latestIOIdentity the latest IO identity
+     * @param ioPoolType the io pool type
+     * @param iSCSIIOIdentities the i SCSIIO identities
      * @return iSCSIIOIdentities
      */
     public static List<IoIdentity> generateIQNIdentityForISCSI(IoIdentity latestIOIdentity, IoPoolType ioPoolType, List<IoIdentity> iSCSIIOIdentities) {
@@ -114,9 +117,11 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param prefix
-     * @param startValue
-     * @param iSCSIIOIdentities
+     * Generate IQ ns by customized input.
+     *
+     * @param prefix the prefix
+     * @param startValue the start value
+     * @param iSCSIIOIdentities the i SCSIIO identities
      * @return iSCSIIOIdentities
      */
     public static List<IoIdentity> generateIQNsByCustomizedInput(String prefix, long startValue, List<IoIdentity> iSCSIIOIdentities) {
@@ -141,10 +146,12 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param count
-     * @param startValue
-     * @param ioPoolType
-     * @param lastIOIdentity
+     * Generate EUI by customized input.
+     *
+     * @param count the count
+     * @param startValue the start value
+     * @param ioPoolType the io pool type
+     * @param lastIOIdentity the last IO identity
      * @return ioIdentities
      */
     public static List<IoIdentity> generateEUIByCustomizedInput(int count, long startValue, IoPoolType ioPoolType, IoIdentity lastIOIdentity) {
@@ -181,9 +188,11 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param count
-     * @param ioPoolType
-     * @param lastIOIdentity
+     * Generate MAC.
+     *
+     * @param count the count
+     * @param ioPoolType the io pool type
+     * @param lastIOIdentity the last IO identity
      * @return ioIdentities
      */
     public static List<IoIdentity> generateMAC(int count, IoPoolType ioPoolType, IoIdentity lastIOIdentity) {
@@ -221,11 +230,13 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param count
-     * @param startValue
-     * @param ioPoolType
-     * @param lastIOIdentity
-     * @param isEui
+     * Generate IQN.
+     *
+     * @param count the count
+     * @param startValue the start value
+     * @param ioPoolType the io pool type
+     * @param lastIOIdentity the last IO identity
+     * @param isEui the is eui
      * @return ioIdentities
      */
     public static List<IoIdentity> generateIQN(int count, long startValue, IoPoolType ioPoolType, IoIdentity lastIOIdentity, boolean isEui) {
@@ -266,9 +277,11 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param count
-     * @param ioPoolType
-     * @param lastIOIdentity
+     * Generate WWNN.
+     *
+     * @param count the count
+     * @param ioPoolType the io pool type
+     * @param lastIOIdentity the last IO identity
      * @return ioIdentities
      */
     public static List<IoIdentity> generateWWNN(int count, IoPoolType ioPoolType, IoIdentity lastIOIdentity) {
@@ -297,9 +310,11 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param count
-     * @param ioPoolType
-     * @param lastIOIdentity
+     * Generate WWPN.
+     *
+     * @param count the count
+     * @param ioPoolType the io pool type
+     * @param lastIOIdentity the last IO identity
      * @return ioIdentities
      */
     public static List<IoIdentity> generateWWPN(int count, IoPoolType ioPoolType, IoIdentity lastIOIdentity) {
@@ -329,7 +344,9 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * @param input
+     * Validate iqn pattern.
+     *
+     * @param input the input
      * @return true if valid iqn pattern else false
      */
     public static boolean validateIqnPattern(final String input) {
@@ -344,9 +361,9 @@ public class IoIdentityManagerUtility {
 
 
     /**
-     * Check the input string is an Hexadecimal number
+     * Check the input string is an Hexadecimal number.
      *
-     * @param input
+     * @param input the input
      * @return true if match else false
      */
     public static boolean isHex(String input) {
@@ -365,6 +382,8 @@ public class IoIdentityManagerUtility {
 
 
     /**
+     * Randomize prefix values.
+     *
      * @return random prefix value
      */
     public static String randomizePrefixValues() {

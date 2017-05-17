@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.dell.isg.smi.virtualidentity.entity.BaseEntity;
 
+/**
+ * The Interface BaseEntityRepository.
+ */
 @Repository
 public interface BaseEntityRepository extends CrudRepository<BaseEntity, Long> {
 

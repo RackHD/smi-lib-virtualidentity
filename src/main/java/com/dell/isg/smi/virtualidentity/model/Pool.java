@@ -11,6 +11,9 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+/**
+ * The Class Pool.
+ */
 @ApiModel
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "id", "name", "description", "macPool", "iqnPool", "wwpnPool", "wwnnPool", "available", "assigned", "reserved", "createdTime", "createdBy", "updatedTime", "updatedBy", "link" })
@@ -42,6 +45,7 @@ public class Pool {
     /**
      * Gets the value of the id property.
      *
+     * @return the id
      */
     public long getId() {
         return id;
@@ -51,6 +55,7 @@ public class Pool {
     /**
      * Sets the value of the id property.
      *
+     * @param value the new id
      */
     public void setId(long value) {
         this.id = value;
@@ -192,6 +197,7 @@ public class Pool {
     /**
      * Gets the value of the available property.
      *
+     * @return the available
      */
     public long getAvailable() {
         return available;
@@ -201,6 +207,7 @@ public class Pool {
     /**
      * Sets the value of the available property.
      *
+     * @param value the new available
      */
     public void setAvailable(long value) {
         this.available = value;
@@ -210,6 +217,7 @@ public class Pool {
     /**
      * Gets the value of the assigned property.
      *
+     * @return the assigned
      */
     public long getAssigned() {
         return assigned;
@@ -219,6 +227,7 @@ public class Pool {
     /**
      * Sets the value of the assigned property.
      *
+     * @param value the new assigned
      */
     public void setAssigned(long value) {
         this.assigned = value;
@@ -228,6 +237,7 @@ public class Pool {
     /**
      * Gets the value of the reserved property.
      *
+     * @return the reserved
      */
     public long getReserved() {
         return reserved;
@@ -237,6 +247,7 @@ public class Pool {
     /**
      * Sets the value of the reserved property.
      *
+     * @param value the new reserved
      */
     public void setReserved(long value) {
         this.reserved = value;

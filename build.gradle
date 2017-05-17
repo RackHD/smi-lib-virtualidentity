@@ -1,15 +1,19 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'com.github.hierynomus.license'
 apply plugin: "io.spring.dependency-management"
-apply plugin: 'maven-publish'
-apply plugin: "com.github.hierynomus.license"
-apply plugin: "com.jfrog.artifactory"
 apply plugin: 'org.sonarqube'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.artifactory'
+apply plugin: 'signing'
+apply plugin: 'maven'
 //apply plugin: 'nebula.lint'
 
 sourceCompatibility = 1.8
 version = "${version}"
 group = 'com.dell.isg.smi'
+archivesBaseName = "virtualidentity"
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
 buildscript {
 	ext {
@@ -19,12 +23,12 @@ buildscript {
    repositories {
     mavenLocal()
 	maven {
-		url "${artifactory_contextUrl}/libs-release"
+		//url "${artifactory_contextUrl}/libs-release"
 		url "https://plugins.gradle.org/m2/"
 	}
   }
   dependencies {
-       classpath "io.spring.gradle:dependency-management-plugin:1.0.0.RELEASE"
+       classpath "io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE"
        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.15"
        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2.1"
        classpath "gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.13.1"
@@ -38,7 +42,7 @@ buildscript {
 
 sonarqube {
     properties {
-        property "sonar.projectName", "SMI :: Library :: Virtual Identity"
+        property "sonar.projectName", "rackhd :: smi-lib-virtualidentity"
         property "sonar.projectKey", "${group}:virtualidentity"
     }
 }
@@ -46,15 +50,31 @@ sonarqube {
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Dell virtual identity jar',
+        attributes 'Implementation-Title': 'RackHD SMI Virtual Identity jar',
                    'Implementation-Version': version
     }
+}
+
+javadoc {
+    options {
+         encoding = 'windows-1251'
+    }
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
 }
 
 repositories {
 	mavenLocal()
 	maven {
-		url "${artifactory_contextUrl}/libs-release"
+	    url "${artifactory_contextUrl}/${dependency_repo}"
 	}
 }
 
@@ -64,10 +84,18 @@ dependencyManagement {
 	}
 }
 
+configurations.all {
+    // check for updates every build
+    resolutionStrategy {
+   		cacheChangingModulesFor 0, 'seconds'
+   	}
+}
+
 dependencies {
-    compile 'com.dell.isg.smi:commons-elm:1.0.36'
-    compile 'org.springframework.data:spring-data-jpa'
-	compile 'javax.persistence:persistence-api:1.0.2'
+        compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.10.Final'
+	compile 'com.dell.isg.smi:commons-elm:1.0.76'
+	compile 'com.dell.isg.smi:commons-utilities:1.0.26'
+        compile 'org.springframework.data:spring-data-jpa'
 	compile "org.springframework:spring-web:${springVersion}"
 	compile "com.fasterxml.jackson.core:jackson-annotations:2.8.8"
 	compile group: 'io.swagger', name: 'swagger-annotations', version: '1.5.13'
@@ -84,13 +112,73 @@ uploadArchives {
        flatDir {
            dirs 'repos'
        }
+	   
+	   mavenDeployer
+	   {
+			beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+			
+			repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+				authentication(userName: ossrhUsername, password: ossrhPassword)
+			}
+
+			snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+				authentication(userName: ossrhUsername, password: ossrhPassword)
+			}
+	  
+	        pom.project {
+				artifactId = "virtualidentity"
+				packaging 'jar'
+				url 'https://www.github.com/rackhd/smi-lib-virtualidentity'
+				name 'RackHD SMI Virtual Identity Jar'
+				description 'A Jar library for Virtual Identity (MAC, IQN, WWN) generation and reservation.'
+				inceptionYear '2017'
+				
+				licenses {
+					license {
+						name 'The Apache Software License, Version 2.0'
+						url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+						distribution 'repo'
+					}
+				}
+				
+				scm {
+				  connection 'scm:git:git://www.github.com/rackhd/smi-lib-virtualidentity.git'
+				  developerConnection 'scm:git:ssh://www.github.com/rackhd/smi-lib-virtualidentity.git'
+				  url 'http://www.github.com/rackhd/smi-lib-virtualidentity'
+				}
+				
+				developers {
+					developer {
+						id 'michaelsteven'
+						name 'Michael Hepfer'
+						email 'michael.hepfer@dell.com'
+						organization 'Dell EMC Inc.'
+						organizationUrl 'http://codedellemc.com'
+						}
+				}
+				
+			}
+		}
     }
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    required { gradle.taskGraph.hasTask("artifactoryPublish") }
+    sign configurations.archives
 }
 
 publishing {
     publications {
         mavenJava(MavenPublication){
             artifact jar
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            artifact javadocJar
         }
     }
 }
@@ -109,7 +197,6 @@ artifactory {
     publish {
         defaults{ publications ("mavenJava")}
         repository {
-            repoKey = 'libs-release-local'
 	    // note: username and password being set by bamboo artifactory plugin
             maven = true
         }
