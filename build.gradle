@@ -30,7 +30,7 @@ buildscript {
   dependencies {
        classpath "io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE"
        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.15"
-       classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2.1"
+       classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.1"
        classpath "gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.13.1"
        //classpath 'com.netflix.nebula:gradle-lint-plugin:latest.release'
   }
@@ -74,8 +74,10 @@ task javadocJar(type: Jar) {
 repositories {
 	mavenLocal()
 	maven {
-	    url "${artifactory_contextUrl}/${dependency_repo}"
-	}
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+        url "https://oss.sonatype.org/content/repositories/releases"
+        url "https://repo.maven.apache.org/maven2"
+    }
 }
 
 dependencyManagement {
